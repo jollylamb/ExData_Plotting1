@@ -12,11 +12,8 @@ makePlot3 <- function(){
   #make the plot
   max1 <- max(subdata$Sub_metering_1)
   plot(subdata$DateTime, subdata$Sub_metering_1, type="l", col="black", ylim=c(0,max1), xlab="", ylab="Energy sub metering")
-  par(new=T)
-  plot(subdata$DateTime, subdata$Sub_metering_2, type="l", col="red", ylim=c(0,max1), xlab="", ylab="")
-  par(new=T)
-  plot(subdata$DateTime, subdata$Sub_metering_3, type="l", col="blue", ylim=c(0,max1), xlab="", ylab="")
-  par(new=F)
+  lines(subdata$DateTime, subdata$Sub_metering_2, col="red")
+  lines(subdata$DateTime, subdata$Sub_metering_3, col="blue")
   
   #add a legend
   legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=c(1,1,1), col=c("black", "red", "blue"))
